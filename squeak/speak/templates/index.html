@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Speech Recognition App</title>
+    <style>
+        body {
+            background: url('https://d27jswm5an3efw.cloudfront.net/app/uploads/2019/04/audio-file-types-17.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        #container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 100px auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00bfff;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <button onclick="startDictation()">Click to Speak</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function startDictation() {
+            if (window.hasOwnProperty('webkitSpeechRecognition')) {
+                var recognition = new webkitSpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+
+                recognition.lang = "en-US";
+                recognition.start();
+
+                recognition.onresult = function(e) {
+                    document.getElementById('output').innerHTML = e.results[0][0].transcript;
+                    recognition.stop();
+                };
+
+                recognition.onerror = function(e) {
+                    recognition.stop();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
