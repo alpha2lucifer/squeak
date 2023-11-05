@@ -7,7 +7,7 @@
 
 **Welcome to Squeak, where science meets sorcery in the realm of digital linguistics!**
 
-[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://your-license-link-here.com)
+[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/alpha2lucifer/squeak/blob/main/LICENSE)
 
 ## Table of Contents
 
